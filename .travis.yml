@@ -1,0 +1,22 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t mack031892/react-test -f ./client/Dockerfile.dev ./client
+
+script:
+  - docker run mack031892/react-test npm run test --coverage
+
+after_success:
+  - docker build -t mack031892/complex-client ./client
+  - docker build -t mack031892/complex-nginx ./nginx
+  - docker build -t mack031892/complex-server ./server
+  - docker build -t mack031892/complex-worker ./worker
+  # LOGIN TO DOCKER CLI
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
+  # TAKE THOSE IMAGES TO PUSH TO DOCKER HUB
+  - docker push mack031892/complex-client
+  - docker push mack031892/complex-nginx
+  - docker push mack031892/complex-server
+  - docker push mack031892/complex-worker
