@@ -29,7 +29,10 @@ deploy:
   bucket_name: elasticbeanstalk-ap-southeast-1-249436949423
   bucket_path: complex-project
   on:
-    branches: main
+    repo: kcam031892/complex-project
+    branches:
+      only:
+        - main
   access_key_id: $AWS_ACCESS_KEY
   secret_access_key:
     secure: $AWS_SECRET_KEY
