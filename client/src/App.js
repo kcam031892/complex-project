@@ -9,7 +9,7 @@ function App() {
       <div className='App'>
         <header className='App-header'>
           <Link to='/' className='App-link'>
-            Home Page
+            Hello World!
           </Link>
           <Link className='App-link' to='/otherpage'>
             Other Page
