@@ -12,6 +12,8 @@ services:
   api:
     image: mack031892/complex-server
     mem_limit: 128m
+    env_file:
+      - .env
     # environment:
     #   - REDIS_HOST=redis
     #   - REDIS_PORT=6379
@@ -26,3 +28,5 @@ services:
   worker:
     image: mack031892/complex-worker
     mem_limit: 128m
+    env_file:
+      - .env
