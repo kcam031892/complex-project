@@ -23,14 +23,13 @@ after_success:
 
 deploy:
   provider: elasticbeanstalk
-  region: ap-southeast-1
-  app: complex-proejct
-  env: Complexproejct-env
-  bucket_name: elasticbeanstalk-ap-southeast-1-249436949423
-  bucket_path: complex-project
+  region: 'ap-southeast-1'
+  app: 'complex-proejct'
+  env: 'Complexproejct-env'
+  bucket_name: 'elasticbeanstalk-ap-southeast-1-249436949423'
   on:
     branch: main
   access_key_id: $AWS_ACCESS_KEY
   secret_access_key:
-    secure: $AWS_SECRET_KEY
+    secure: '$AWS_SECRET_KEY'
   edge: true
