@@ -2,7 +2,6 @@ version: '3'
 services:
   nginx:
     image: mack031892/complex-nginx
-    build: nginx
     restart: always
     ports:
       - '80:80'
@@ -12,8 +11,6 @@ services:
       - client
   api:
     image: mack031892/complex-server
-    build: api
-    depends_on: nginx
     mem_limit: 128m
     # environment:
     #   - REDIS_HOST=redis
@@ -25,9 +22,7 @@ services:
     #   - PG_PORT=5432
   client:
     image: mack031892/complex-client
-    build: client
-    depends_on: nginx
     mem_limit: 128m
   worker:
-    build: worker
+    image: mack031892/complex-worker
     mem_limit: 128m
