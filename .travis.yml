@@ -22,7 +22,7 @@ after_success:
   - docker push mack031892/complex-worker
 
 deploy:
-  provider: elasticbeanstack
+  provider: elasticbeanstalk
   region: ap-southeast-1
   app: complex-proejct
   env: Complexproejct-env
