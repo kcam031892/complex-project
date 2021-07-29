@@ -12,7 +12,7 @@ function App() {
             Hello World!
           </Link>
           <Link className='App-link' to='/otherpage'>
-            Other Page
+            Other Page Link
           </Link>
         </header>
         <div>
