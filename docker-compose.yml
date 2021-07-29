@@ -1,0 +1,33 @@
+version: '3'
+services:
+  nginx:
+    image: mack031892/complex-nginx
+    build: nginx
+    restart: always
+    ports:
+      - '80:80'
+    mem_limit: 128m
+    links:
+      - api
+      - client
+  api:
+    image: mack031892/complex-server
+    build: api
+    depends_on: nginx
+    mem_limit: 128m
+    # environment:
+    #   - REDIS_HOST=redis
+    #   - REDIS_PORT=6379
+    #   - PG_HOST=postgres
+    #   - PG_USER=postgres
+    #   - PG_DATABASE=postgres
+    #   - PG_PASSWORD=postgres
+    #   - PG_PORT=5432
+  client:
+    image: mack031892/complex-client
+    build: client
+    depends_on: nginx
+    mem_limit: 128m
+  worker:
+    build: worker
+    mem_limit: 128m
