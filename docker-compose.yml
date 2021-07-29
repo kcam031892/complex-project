@@ -13,13 +13,13 @@ services:
     image: mack031892/complex-server
     mem_limit: 128m
     environment:
-      REDIS_HOST: complex-project.dun2yu.ng.0001.apse1.cache.amazonaws.com
-      REDIS_PORT: 6379
-      PG_HOST: complex-project-rds.c7jpwjt3ogux.ap-southeast-1.rds.amazonaws.com
-      PG_USER: postgres
-      PG_DATABASE: postgres
-      PG_PASSWORD: postgres_password
-      PG_PORT: 5432
+      REDIS_HOST: ${REDIS_HOST}
+      REDIS_PORT: ${REDIS_PORT}
+      PG_HOST: ${PG_HOST}
+      PG_USER: ${PG_USER}
+      PG_DATABASE: ${PG_DATABASE}
+      PG_PASSWORD: ${PG_PASSWORD}
+      PG_PORT: ${PG_PORT}
   client:
     image: mack031892/complex-client
     mem_limit: 128m
