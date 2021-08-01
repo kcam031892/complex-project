@@ -1,28 +1,20 @@
 version: '3'
 services:
-  nginx:
-    image: mack031892/complex-nginx
-    restart: always
-    ports:
-      - '80:80'
-    mem_limit: 128m
-    links:
-      - client
-      - api
   api:
     image: mack031892/complex-server
     mem_limit: 128m
-    environment:
-      REDIS_HOST: ${REDIS_HOST}
-      REDIS_PORT: ${REDIS_PORT}
-      PG_HOST: ${PG_HOST}
-      PG_USER: ${PG_USER}
-      PG_DATABASE: ${PG_DATABASE}
-      PG_PASSWORD: ${PG_PASSWORD}
-      PG_PORT: ${PG_PORT}
   client:
     image: mack031892/complex-client
     mem_limit: 128m
   worker:
     image: mack031892/complex-worker
     mem_limit: 128m
+  nginx:
+    image: mack031892/complex-nginx
+    restart: always
+    ports:
+      - '5000:80'
+    mem_limit: 128m
+    links:
+      - client
+      - api
