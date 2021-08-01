@@ -3,6 +3,14 @@ services:
   api:
     image: mack031892/complex-server
     mem_limit: 128m
+    environment:
+      REDIS_HOST: ${REDIS_HOST}
+      REDIS_PORT: ${REDIS_PORT}
+      PG_HOST: ${PG_HOST}
+      PG_USER: ${PG_USER}
+      PG_DATABASE: ${PG_DATABASE}
+      PG_PASSWORD: ${PG_PASSWORD}
+      PG_PORT: ${PG_PORT}
   client:
     image: mack031892/complex-client
     mem_limit: 128m
