@@ -13,7 +13,7 @@ services:
     image: mack031892/complex-nginx
     restart: always
     ports:
-      - '5000:80'
+      - '80:80'
     mem_limit: 128m
     links:
       - client
